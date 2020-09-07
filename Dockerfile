@@ -2,6 +2,7 @@ FROM jenkins/jenkins:lts
 USER root
 RUN apt-get update
 RUN apt-get install -y python-pip wget software-properties-common python3-pip
+RUN DEBIAN_FRONTEND=noninteractive apt-get install libldap2-dev libsasl2-dev slapd ldap-utils tox lcov valgrind -y
 # Install app dependencies
 RUN git config --global http.sslVerify false
 RUN pip install --upgrade pip
