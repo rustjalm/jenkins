@@ -1,6 +1,6 @@
 FROM jenkins/jenkins:lts
 USER root
-RUN echo "deb http://repo.yandex.ru/clickhouse/deb/stable/ main/" | sudo tee /etc/apt/sources.list.d/clickhouse.list
+RUN echo "deb http://repo.yandex.ru/clickhouse/deb/stable/ main/" | tee /etc/apt/sources.list.d/clickhouse.list
 RUN apt-get update
 RUN apt-get install -y python-pip wget software-properties-common python3-pip clickhouse-client
 RUN DEBIAN_FRONTEND=noninteractive apt-get install libldap2-dev libsasl2-dev slapd ldap-utils tox lcov valgrind -y
