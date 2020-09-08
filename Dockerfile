@@ -1,5 +1,6 @@
 FROM jenkins/jenkins:lts
 USER root
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv E0C56BD4
 RUN echo "deb http://repo.yandex.ru/clickhouse/deb/stable/ main/" | tee /etc/apt/sources.list.d/clickhouse.list
 RUN apt-get update
 RUN apt-get install -y python-pip wget software-properties-common python3-pip clickhouse-client
